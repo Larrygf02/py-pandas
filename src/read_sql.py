@@ -5,3 +5,4 @@ df = pd.read_sql_query("SELECT * FROM users", con=engine)
 df.columns.list()
 df.values
 print(df)
+print(df.columns)
