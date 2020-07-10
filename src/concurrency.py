@@ -25,6 +25,7 @@ def insert_df(df):
     df.to_sql('cars', con=engine, if_exists='replace')
 group_data = data.groupby(np.arange(len(data)) // split_n)
 r = Parallel(n_jobs=10)(delayed(insert_df)(df) for _,df in group_data)
+## Execution in parallel
 for i, df in group_data:
     insert_df(df)
     print(df.shape)
